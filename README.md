@@ -63,7 +63,7 @@
 
     function showResult() {
       const accuracy = (correctCount / 10) * 100;
-      if (confirm(`お疲れさま！\n正答数：${correctCount}/10\n正答率：${accuracy.toFixed(1)}%\nもう一度挑戦しますか？`)) {
+      if (confirm(`お疲れさま！終わりたい場合はサイトを閉じてください。\n正答数：${correctCount}/10\n正答率：${accuracy.toFixed(1)}%\nもう一度挑戦しますか？`)) {
         questionCount = 0;
         correctCount = 0;
         document.getElementById("answer").value = "";
