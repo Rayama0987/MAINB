@@ -10,7 +10,7 @@
   </style>
 </head>
 <body>
-  <h1>乗法公式ゲーム</h1>
+  <h1>展開テスト 小版</h1>
   <div id="question"></div>
   <input type="text" id="answer" placeholder="x²+xy+y² みたいに入力">
   <br>
