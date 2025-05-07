@@ -34,16 +34,16 @@
     function generateQuestion() {
       const type = Math.random() < 0.5 ? "square" : "binomial";
       let questionText = "";
-      let a = randInt(1, 9);
-      let b = randInt(1, 9);
+      let a = randInt(1, 10);
+      let b = randInt(1, 10);
       let sign1 = Math.random() < 0.5 ? "+" : "-";
 
       if (type === "square") {
         questionText = `Q${questionCount + 1}: ( ${a}x ${sign1} ${b}y )² を展開して！`;
         correctExpansion = expandSquare(a, b, sign1);
       } else {
-        let c = randInt(1, 9);
-        let d = randInt(1, 9);
+        let c = randInt(1, 10);
+        let d = randInt(1, 10);
         let sign2 = Math.random() < 0.5 ? "+" : "-";
         questionText = `Q${questionCount + 1}: ( ${a}x ${sign1} ${b}y )( ${c}x ${sign2} ${d}y ) を展開して！`;
         correctExpansion = expandBinomial(a, b, c, d, sign1, sign2);
