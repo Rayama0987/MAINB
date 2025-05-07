@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>乗法公式ゲーム (ax±by)² / (ax±by)(cx±dy)</title>
+  <title>展開テスト 普通版 (ax±by)² / (ax±by)(cx±dy)</title>
   <style>
     body { font-family: Arial; padding: 20px; }
     input[type="text"] { width: 300px; font-size: 16px; }
