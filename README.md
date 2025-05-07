@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>乗法公式ゲーム (ax±by)²</title>
+  <title>乗法公式ゲーム (ax±by)(cx±dy)</title>
   <style>
     body { font-family: Arial; padding: 20px; }
     input[type="text"] { width: 300px; font-size: 16px; }
@@ -10,7 +10,7 @@
   </style>
 </head>
 <body>
-  <h1>乗法公式ゲーム (ax±by)²</h1>
+  <h1>乗法公式ゲーム (ax±by)(cx±dy)</h1>
   <div id="question"></div>
   <input type="text" id="answer" placeholder="x²+xy+y² みたいに入力">
   <br>
@@ -21,22 +21,26 @@
   <script>
     let questionCount = 0;
     let correctCount = 0;
-    let a, b, plus, correctExpansion;
+    let a, b, c, d, plusAB, plusCD, correctExpansion;
 
     function generateQuestion() {
-      a = Math.floor(Math.random() * 9) + 1;
-      b = Math.floor(Math.random() * 9) + 1;
-      plus = Math.random() < 0.5;
+      a = Math.floor(Math.random() * 10) + 1;
+      b = Math.floor(Math.random() * 10) + 1;
+      c = Math.floor(Math.random() * 10) + 1;
+      d = Math.floor(Math.random() * 10) + 1;
 
-      const operator = plus ? "+" : "-";
+      plusAB = Math.random() < 0.5;
+      plusCD = Math.random() < 0.5;
+
+      const operatorAB = plusAB ? "+" : "-";
+      const operatorCD = plusCD ? "+" : "-";
+
+      // Display question
       document.getElementById("question").textContent =
-        `Q${questionCount + 1}: ( ${a}x ${operator} ${b}y )² を展開して！`;
+        `Q${questionCount + 1}: ( ${a}x ${operatorAB} ${b}y ) × ( ${c}x ${operatorCD} ${d}y ) を展開して！`;
 
-      if (plus) {
-        correctExpansion = `${a*a}x²+${2*a*b}xy+${b*b}y²`;
-      } else {
-        correctExpansion = `${a*a}x²-${2*a*b}xy+${b*b}y²`;
-      }
+      // Calculate correct expansion
+      correctExpansion = `${a * c}x² ${operatorAB === "+" ? "+" : "-"} ${a * d + b * c}xy ${operatorCD === "+" ? "+" : "-"} ${b * d}y²`;
     }
 
     function checkAnswer() {
