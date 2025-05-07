@@ -7,6 +7,8 @@
     body { font-family: Arial; padding: 20px; }
     input[type="text"] { width: 300px; font-size: 16px; }
     button { font-size: 16px; margin-top: 10px; }
+    .term-buttons { margin-top: 10px; }
+    .term-buttons button { margin: 5px; }
   </style>
 </head>
 <body>
@@ -14,7 +16,13 @@
   <div id="question"></div>
   <input type="text" id="answer" placeholder="x²+xy+y² みたいに入力">
   <br>
-  <button onclick="checkAnswer()">答える！</button>
+  <div class="term-buttons">
+    <button onclick="insertTerm('x²')">x²</button>
+    <button onclick="insertTerm('y²')">y²</button>
+    <button onclick="insertTerm('xy')">xy</button>
+  </div>
+  <br>
+  <button onclick="checkAnswer()">解答</button>
   <p id="result"></p>
   <p id="score">0問正解中</p>
 
@@ -41,6 +49,11 @@
 
       // Calculate correct expansion
       correctExpansion = `${a * c}x² ${operatorAB === "+" ? "+" : "-"} ${a * d + b * c}xy ${operatorCD === "+" ? "+" : "-"} ${b * d}y²`;
+    }
+
+    function insertTerm(term) {
+      const inputField = document.getElementById("answer");
+      inputField.value += term;  // Add the selected term to the input field
     }
 
     function checkAnswer() {
